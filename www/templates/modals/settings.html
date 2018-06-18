@@ -1,0 +1,61 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+        <h1 class="title">Configuració</h1>
+
+        <div class="buttons">
+            <!-- <button class="button button-clear icon-right ion-arrow-down-c" ng-click="downloadcurrentMap()"></button> -->
+            <!-- <button class="button button-clear icon-right ion-close-circled" ng-click="modalSettings.hide()"></button> -->
+            <button class="button button-clear icon-right ion-close-circled" ng-click="closeModalSettings()" ion-stop-event="click"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider text-center divider-config-list margintop-2px">
+                    <button class="button {{settings.myshape}} button-shadow2 opacity100 button-energized icon ion-android-pin "
+                            ng-class="{'button-size0': (settings.bsize==0),
+                                        'button-size1': (settings.bsize==1),
+                                        'button-size2': (settings.bsize==2),
+                                        'button-size3': (settings.bsize==3)
+                                    }">
+                    </button>
+            </div>
+
+
+            <div class="item range">
+                Petit
+                <i class="icon ion-arrow-resize fontsize18"></i>
+                <input type="range"
+                       name="settings.bsize"
+                       min="0"
+                       max="3"
+                       step="1"
+                       ng-model="settings.bsize"
+                       ng-change="updateButtonsSize()">
+                <i class="icon ion-arrow-resize fontsize30"></i>
+                Gran
+            </div>
+
+
+            <div class="">
+                <ion-list>
+                  <ion-radio name="settings.myshape" ng-model="settings.myshape" ng-value="'button-rodo'">Rodó</ion-radio>
+                  <ion-radio name="settings.myshape" ng-model="settings.myshape" ng-value="'button-square'">Quadrat</ion-radio>
+                </ion-list>
+             </div>
+
+             <div class="item item-divider text-center divider-config-list">
+                 <img src="{{settings.navicon}}">
+             </div>
+
+             <div class="">
+                 <ion-list>
+                   <ion-radio ng-model="settings.navicon" ng-value="'img/gps_blue.png'">Blau</ion-radio>
+                   <ion-radio ng-model="settings.navicon" ng-value="'img/gps_purple.png'">Lila</ion-radio>
+                 </ion-list>
+             </div>
+        </div>
+    </ion-content>
+
+
+</ion-modal-view>

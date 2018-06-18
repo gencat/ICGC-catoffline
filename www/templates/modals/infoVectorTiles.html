@@ -1,0 +1,28 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-royal">
+        <h1 class="title">Vector tiles a InstaMaps</h1>
+        <div class="buttons">
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalInfoVectorTiles.hide()" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+    <ion-content  class="padding">
+
+        <div>
+        En aquesta versió de Catalunya Offline teniu la possibilitat de treballar amb un mapa que conté la <strong>totalitat</strong> del Mapa Topogràfic de Catalunya a escala 1:25.000. Dins aquest mapa (full 0) podeu gravar rutes i punts de la mateixa manera que en els altres. <br /><br />
+A diferència dels 77 fulls parcials en que on us servim la cartografia com a imatges, en aquest us servim dades vectorials (<i>vector tiles</i>) que pesen significativament menys. <br /><br />
+En l’àmbit funcional, veureu que aquest mapa permet la rotació i inclinació del punt de vista.<br /><br />
+A diferència que en els altres fulls, en aquest no hi ha ombra de muntanya perquè es tracta d’una imatge molt pesada.<br /><br />
+Voleu descarregar ara aquest full (337Mb)?
+
+        </div>
+
+        <div class="button-bar row">
+            <a ng-click="goToVTDownload()" class="col-33 button button-35px button-outline">Sí</a>
+            <a ng-click="modalInfoVectorTiles.hide()" class="col-33 button button-35px button-outline">Més tard</a>
+            <a ng-click="disableVTModal()" class="col-33 button button-35px button-outline">Mai</a>
+        </div>
+
+    </ion-content>
+
+</ion-modal-view>

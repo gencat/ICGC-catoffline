@@ -1,0 +1,101 @@
+<ion-view view-title="Informació">
+   <ion-content class="my-body">
+
+      <div class="list card">
+        <div class="item item-divider">
+          <h2>Llegenda</h2>
+          <p>Informació turística</p>
+        </div>
+
+        <div class="item">
+          <img ng-src="img/legend.png">
+        </div>
+      </div>
+
+      <div class="list card">
+         <div class="item item-divider">
+            <img ng-class="logo-info" ng-src="img/logo_200x81.png">
+         </div>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-home"></i>
+             Parc de Montjuïc. 08038 Barcelona
+        </a>
+        <a href="tel:935671500" class="item item-icon-left">
+          <i class="icon ion-ios-telephone"></i>
+           93 567 15 00
+        </a>
+        <a ng-click="sendEmail()" class="item item-icon-left">
+          <i class="icon ion-email"></i>
+          icgc@icgc.cat
+        </a>
+        <a ng-click="openWebICC()" class="item item-icon-left">
+          <i class="icon ion-android-globe"></i>
+          www.icgc.cat
+        </a>
+      </div>
+
+      <div class="list card">
+         <div class="item item-divider">
+             Llicències d'ús
+         </div>
+         <div class="item">
+            <h2>Fotos:</h2>
+            <span class="item-llicencies">
+            Roman Tarragona by Mark.thurman92 - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Roman_Tarragona.jpg#/media/File:Roman_Tarragona.jpg<br>
+            Plaça Major-Ajuntament-Tàrrega-Fira 2012-01 by Mafoso (talk) - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_Major-Ajuntament-T%C3%A0rrega-Fira_2012-01.JPG#/media/File:Pla%C3%A7a_Major-Ajuntament-T%C3%A0rrega-Fira_2012-01.JPG
+            Tortosa (town view) by © Hans Hillewaert /. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Tortosa_(town_view).jpg#/media/File:Tortosa_(town_view).jpg
+            Tremp des de Puigmaçana by Gustau Erill i Pinyot - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Tremp_des_de_Puigma%C3%A7ana.jpg#/media/File:Tremp_des_de_Puigma%C3%A7ana.jpg
+            Casa de la Vila (Valls) - 3 by MARIA ROSA FERRE ✿ - Flickr: Casa de la Vila, Valls, Alt Camp. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Casa_de_la_Vila_(Valls)_-_3.jpg#/media/File:Casa_de_la_Vila_(Valls)_-_3.jpg
+            Spain.Catalonia.Tarragona.El.Vendrell by Yearofthedragon - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Spain.Catalonia.Tarragona.El.Vendrell.jpeg#/media/File:Spain.Catalonia.Tarragona.El.Vendrell.jpeg
+            191 Plaça Major, angle nord-est by Enfo - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:191_Pla%C3%A7a_Major,_angle_nord-est.jpg#/media/File:191_Pla%C3%A7a_Major,_angle_nord-est.jpg
+            VIELHA - VAL D'ARAN - IB-378 by Isidre blanc - Own work. Licensed under CC BY-SA 4.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:VIELHA_-_VAL_D%27ARAN_-_IB-378.JPG#/media/File:VIELHA_-_VAL_D%27ARAN_-_IB-378.JPG
+            Basílica de Santa Maria (Vilafranca del Penedès) - 37 by MARIA ROSA FERRE ✿ - Flickr: Basílica de Santa Maria, Vilafranca del Penedès, Alt Penedès. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_Santa_Maria_(Vilafranca_del_Pened%C3%A8s)_-_37.jpg#/media/File:Bas%C3%ADlica_de_Santa_Maria_(Vilafranca_del_Pened%C3%A8s)_-_37.jpg
+            Vilanova i la Geltru beach2. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Vilanova_i_la_Geltru_beach2.jpg#/media/File:Vilanova_i_la_Geltru_beach2.jpg
+            Estany de Sant Maurici by Josep Renalias - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Estany_de_Sant_Maurici.JPG#/media/File:Estany_de_Sant_Maurici.JPG
+            Vista de la vall d'àneu by Espencat - Treball propi. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Vista_de_la_vall_d%27%C3%A0neu.jpg#/media/File:Vista_de_la_vall_d%27%C3%A0neu.jpg
+            Pica d'Estats by Seruba - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Pica_d%27Estats.JPG#/media/File:Pica_d%27Estats.JPG
+            COLL DE JOVELL I PEDRAFORCA by Isidre blanc - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:COLL_DE_JOVELL_I_PEDRAFORCA.JPG#/media/File:COLL_DE_JOVELL_I_PEDRAFORCA.JPG
+            La Tosa Ger 1 by Vriullop - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:La_Tosa_Ger_1.JPG#/media/File:La_Tosa_Ger_1.JPG
+            Les Alberes by AC de la Viquipèdia en francès - Transferred from fr.wikipedia to Commons.. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Les_Alberes.jpg#/media/File:Les_Alberes.jpg
+            Cap de Creus 1 by Mikipons - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Cap_de_Creus_1.jpg#/media/File:Cap_de_Creus_1.jpg
+            Matagalls vist des d'Arbúcies by Joan301009 - Own work. Licensed under Public Domain via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Matagalls_vist_des_d%27Arb%C3%BAcies.jpg#/media/File:Matagalls_vist_des_d%27Arb%C3%BAcies.jpg
+            Montcau 1 by DagafeSQV - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Montcau_1.JPG#/media/File:Montcau_1.JPG
+            Plecsdellibre2 by Medol - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Plecsdellibre2.jpg#/media/File:Plecsdellibre2.jpg
+            L'Encanyissada by Pere - Treball propi (own photo). Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:L%27Encanyissada.jpg#/media/File:L%27Encanyissada.jpg
+            Mont Caro (enhanced) by Mont_Caro.jpg: Xvazquezderivative work: Quico (talk) - Mont_Caro.jpg. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Mont_Caro_(enhanced).jpg#/media/File:Mont_Caro_(enhanced).jpg
+            Vall fosca des de Giró (2) by Kippelboy - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Vall_fosca_des_de_Gir%C3%B3_(2).JPG#/media/File:Vall_fosca_des_de_Gir%C3%B3_(2).JPG
+            02 Estació d'esquí nòrdic de Lles, amb la Tossa Plana al fons by Enfo - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:02_Estaci%C3%B3_d%27esqu%C3%AD_n%C3%B2rdic_de_Lles,_amb_la_Tossa_Plana_al_fons.jpg#/media/File:02_Estaci%C3%B3_d%27esqu%C3%AD_n%C3%B2rdic_de_Lles,_amb_la_Tossa_Plana_al_fons.jpg
+            Capçaleres del Ter i del Freser - 17 by MARIA ROSA FERRE ✿ - Flickr: Vall de Núria. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Cap%C3%A7aleres_del_Ter_i_del_Freser_-_17.jpg#/media/File:Cap%C3%A7aleres_del_Ter_i_del_Freser_-_17.jpg
+            Cims Alta Garrotxa by Jordiipa - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Cims_Alta_Garrotxa.jpg#/media/File:Cims_Alta_Garrotxa.jpg
+            El Turbó. by Carolina Latorre Canet - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:El_Turb%C3%B3..jpg#/media/File:El_Turb%C3%B3..jpg
+            Boumort by Pallares1 - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Boumort.JPG#/media/File:Boumort.JPG
+            Llimiana. Capdavall de la Vall de Barcedana by Gustau Erill i Pinyot - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Llimiana._Capdavall_de_la_Vall_de_Barcedana.JPG#/media/File:Llimiana._Capdavall_de_la_Vall_de_Barcedana.JPG
+            Gavet de la Conca. Sant Salvador de Toló. El Montsec de Rúbies, la Serra del Cucuc by Gustau Erill i Pinyot - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Gavet_de_la_Conca._Sant_Salvador_de_Tol%C3%B3._El_Montsec_de_R%C3%BAbies,_la_Serra_del_Cucuc.JPG#/media/File:Gavet_de_la_Conca._Sant_Salvador_de_Tol%C3%B3._El_Montsec_de_R%C3%BAbies,_la_Serra_del_Cucuc.JPG
+            Pantadoliana by Dirkvde - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Pantadoliana.jpg#/media/File:Pantadoliana.jpg
+            LA LLOSA DEL CAVALL - IB-815 by Isidre blanc (talk) - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:LA_LLOSA_DEL_CAVALL_-_IB-815.JPG#/media/File:LA_LLOSA_DEL_CAVALL_-_IB-815.JPG
+            Castell de Lluçà - 1 by SBA73 - Flickr: El castell de Lluçà / The castle of Lluçà. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Castell_de_Llu%C3%A7%C3%A0_-_1.jpg#/media/File:Castell_de_Llu%C3%A7%C3%A0_-_1.jpg
+            Granera - 001 by Mutari - Treball propi. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Granera_-_001.jpg#/media/File:Granera_-_001.jpg
+            Cabrera I by EnRutx - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Cabrera_I.JPG#/media/File:Cabrera_I.JPG
+            Les Gavarres by Maria planas aulet - Own work. Licensed under CC BY-SA 3.0 es via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Les_Gavarres.jpg#/media/File:Les_Gavarres.jpg
+            Platja de Lloret by Xavi Garcia. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Platja_de_Lloret.jpg#/media/File:Platja_de_Lloret.jpg
+            Montnegre- by Rigole - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Montnegre-.jpg#/media/File:Montnegre-.jpg
+            Pantà de Santa Anna by Àlex - Treball propi. Licensed under CC BY-SA 4.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Pant%C3%A0_de_Santa_Anna.JPG#/media/File:Pant%C3%A0_de_Santa_Anna.JPG
+            Valls del Sió-Llobregós - 2 by Angela Llop - Flickr: Mirador de Talteüll, Massoteres, la Segarra, Lleida.. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Valls_del_Si%C3%B3-Llobreg%C3%B3s_-_2.jpg#/media/File:Valls_del_Si%C3%B3-Llobreg%C3%B3s_-_2.jpg
+            Camps segats a Sant Valentí de Vilallonga by Pere prlpz - Treball propi. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Camps_segats_a_Sant_Valent%C3%AD_de_Vilallonga.jpg#/media/File:Camps_segats_a_Sant_Valent%C3%AD_de_Vilallonga.jpg
+            Canal de Seros 5 by Indibil - Fotogràfia propia. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Canal_de_Seros_5.jpg#/media/File:Canal_de_Seros_5.jpg
+            Flix pas de barca by Xeicxeic - Treball propi. Licensed under CC BY-SA 4.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Flix_pas_de_barca.jpg#/media/File:Flix_pas_de_barca.jpg
+            Sistema prelitoral central - 12 by Angela Llop - Flickr: Plana d'Ancosa, Esblada.. Licensed under CC BY-SA 2.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Sistema_prelitoral_central_-_12.jpg#/media/File:Sistema_prelitoral_central_-_12.jpg
+            Muntanyes de prades by Espencat - Treball propi. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Muntanyes_de_prades.jpg#/media/File:Muntanyes_de_prades.jpg
+            Mont-redon by Tabalot - Treball propi. Licensed under Domini públic via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Mont-redon.jpg#/media/File:Mont-redon.jpg
+         </span>
+         </div>
+      </div>
+
+    </ion-content>
+
+   <div class="bar bar-footer bar-royal">
+      <div class="title">{{app.name}} v{{app.version}}</div>
+   </div>
+
+</ion-view>

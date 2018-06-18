@@ -1,0 +1,72 @@
+<ion-view view-title="Descripció">
+   <ion-content class="my-body">
+
+
+      <div ng-show="showSpinner" class="my-spinner-center">
+          <ion-spinner icon="spiral" class="spinner-dark "></ion-spinner>
+      </div>
+
+        <div class="list card">
+            <div class="item item-avatar my-header-card">
+              <div class="item-image mapa-list-id" ng-class="isDownloaded() ? 'background-downloaded' : 'background-no-downloaded'" >{{mapa.id}}</div>
+              <h2 class="mapa-list-name">{{mapa.nom}}</h2>
+           </div>
+
+
+             <!--BOTONS -->
+              <div ng-show="isDownloaded()" class="item">
+                  <div class=" button-bar row">
+                     <a ng-click="deleteMapVt('')"
+                        class="col-25 button button-35px button-outline icon ion-android-delete"></a>
+                     <a class="col-75 button button-35px button-royal icon-left ion-map" ng-click="toggleSpinner()"
+                        ui-sref="map_vt({idMap: {{mapa.id}}, type: 'vt' })">Mapa&nbsp;<i class="icon  ion-ios-arrow-right"></i></a>
+                 </div>
+
+              </div>
+
+              <div ng-hide="isDownloaded()" class="item button-bar">
+                  <a ng-click="initDownloadProcess('')"
+                     class="button button-35px button-outline button-royal icon-left ion-android-download"
+                     ng-class="{'disabled': makeAndroidDisabled()}">
+                      Mapa ({{mapa.mb}} MB)
+                  </a>
+              </div>
+              <div class="item" ng-show="makeAndroidDisabled()" >
+                <div class="my-card" ng-cloak>
+                  <div class="item my-info-item item-text-wrap text-center ">
+                    <h3 class="text-color-assertive">
+                      <i class="icon ion-alert-circled"></i>&nbsp; La tecnologia vector tiles només està disponible a partir de la versió 5 d’Android. 
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div  class="item item-body">
+              
+                <p>En aquesta versió de Catalunya Offline teniu la possibilitat de treballar amb un <b>mapa que conté la totalitat del Mapa Topogràfic de Catalunya</b> a escala 1:25.000. Dins aquest mapa (full 0) podeu gravar rutes i punts de la mateixa manera que en els altres.</p>
+
+                <p>A diferència dels 77 fulls parcials en que us servim la cartografia com a imatges, en aquest us servim dades vectorials (vector tiles) que pesen significativament menys.</p>
+
+                <p>En l’àmbit funcional, veureu que aquest mapa permet la rotació i inclinació del punt de vista.</p>
+
+                <p>A diferència que en els altres fulls, en aquest no hi ha ombra de muntanya perquè es tracta d’una imatge molt pesada.</p>
+
+              </div>
+
+              <div class="item item-body">
+                  <img class="full-image img-description"  ng-src="img/thumbnails/0-catalunya.png">
+              </div>
+
+             <div ng-show="isDownloaded()" class="item">
+              <div class="txt-downloaded"><p>Mapa {{mapa.mb}} MB - Descarregat: {{mapa.data_download}}</p></div>
+             </div>
+
+
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

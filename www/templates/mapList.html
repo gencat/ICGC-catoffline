@@ -1,0 +1,50 @@
+<ion-view view-title="Àrees geogràfiques">
+    <div class="bar bar-subheader item item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text" ng-model="search" placeholder="Filtrar mapes per nom o municipi...">
+        </label>
+
+        <button ng-if="search.length"
+                class="button button-icon ion-ios-close input-button"
+                ng-click="clearSearch()">
+        </button>
+    </div>
+    <ion-nav-buttons side="right">
+        <button ng-if="isAndroid"
+                ng-click="pickStoragePath()"
+                class="button button-icon icon myicon-sd_storage"
+        >
+        <button ui-sref="information"
+                class="button button-icon icon ion-information-circled">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-floating-button ng-click="isAndroid ? initAddAreaAndroid() : openModalAddAreaIOS() " has-footer="false" button-color="#FF9500" icon="ion-plus" icon-color="#fff">
+    </ion-floating-button>
+
+
+    <div ng-show="showSpinner" class="my-spinner-center">
+        <ion-spinner icon="spiral" class="spinner-dark "></ion-spinner>
+    </div>
+
+    <ion-content delegate-handle="main" class="padding-top-44">
+
+        <ion-list>
+
+            <ion-item ng-repeat="mapa in mapes  | orderBy:['-top','id_order'] | searchMaps:search"
+                    class="item item-avatar my-item item-icon-right"
+                    ng-click="goToDescription(mapa.id)">
+
+                        <img  ng-src="img/thumbnails/{{mapa.picture_path}}" ng-class="isAnyDownloaded({{mapa.id}}) ? 'avatar-downloaded' : 'avatar-no-downloaded'" >
+                        <h2 ng-class="isAnyDownloaded({{mapa.id}}) ? 'mapa-downloaded' : ''">{{mapa.id}}. {{mapa.nom}}</h2>
+
+                        <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-scroller-top scroll-delegate="main" text="" animate="true" css-class="button button-35px button-royal ion-arrow-up-a bottom-right float-right" offset="20"></ion-scroller-top>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,112 @@
+<ion-view view-title="Catalunya VT">
+
+	<div ng-show="enabledCercaLloc" class="bar bar-subheader item item-input-inset cercaLloc-bar">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text" ng-model="cercaLloc" placeholder="llocs o elevacions...">
+        </label>
+
+        <button ng-if="cercaLloc.length" class="button button-icon ion-checkmark-circled input-button"
+                ng-click="initCercaLloc($event)">
+        </button>
+
+    </div>
+
+    <ion-nav-buttons side="left">
+
+    </ion-nav-buttons>
+
+
+    <ion-nav-buttons side="right">
+
+        <button class="button icon "
+                ng-class="{
+                          'animated fadeIn infinite' : (modeTracking==1),
+                          'animated pulse infinite' : (modeTracking==2),
+                          'ion-record':  (modeTracking == 1),
+                          'ion-pause' : (modeTracking == 2)}"
+        >
+        </button>
+
+        <button class="button button-icon icon ion-ios-search-strong"
+                ng-click="openCercaLloc()" ion-stop-event="click">
+        </button>
+
+        <button class="button button-icon icon ion-gear-a"
+                ng-click="modalSettings.show()" ion-stop-event="click">
+        </button>
+
+    </ion-nav-buttons>
+
+
+
+	<ion-content overflow-scroll="true" data-tap-disabled="true" class="my-body-map">
+    
+
+	    <div ng-show="showSpinner" class="my-spinner-center">
+	        <ion-spinner icon="spiral" class="spinner-dark "></ion-spinner>
+	    </div>
+
+
+	    <div id="mapvt"></div>
+
+
+	    <div class="mycolright">
+
+	        <div ng-show="focusMap" class="txt-right button-margin-6px">
+	              <button class="button button-minheight-52 button-rodo button-shadow2 opacity90 icon ion-android-locate button-float-positive" >
+	        </div>
+
+	        <div ng-show="!focusMap" class="txt-right button-margin-6px">
+	              <button ng-click="toggleFocusMap2()"
+	                      ng-class="{
+	                                  'animated flash infinite' : GPSgettingPos,
+	                                  'ion-pinpoint': ((!GPSactiu && modeTracking == 0) || (GPSactiu && 2 == modeTracking)),
+	                                  'ion-android-locate' : (GPSactiu || (modeTracking != 0 && modeTracking != 2))}"
+	                     class="button button-minheight-52 button-rodo button-shadow2 opacity90 icon" >
+	        </div>
+	        <div class="txt-right button-margin-6px">
+	              <button id="compass-icon" ng-click="toggleCompass()"
+	                     class="button button-minheight-52 button-rodo button-shadow2 opacity90 icon myicon-compass" >
+	        </div>
+	        <div class="txt-right button-margin-6px">
+	              <button ng-click="changeTilt()"
+	                     class="button button-minheight-52 button-rodo button-shadow2 opacity90 icon myicon-road" >
+	        </div>
+
+
+	        <!--<div class="txt-right button-margin-6px">
+	              <button class="button button-minheight-52 button-rodo-border button-shadow2 opacity90 icon "
+	                    ng-class="{'button-image-topo' : (initType == 'orto'), 'button-image-orto' : (initType == 'topo')}"
+	                    ng-click="switchFons()"
+	                    ng-if="allBaselayers">
+	        </div>-->
+	    </div>
+
+
+		<div class="my-button-row-vt row row-bottom">
+
+	        <div class="my-button-col col col-33">
+	            <button ng-click="getCurrentPosition()"
+	                    ng-class="currentPositionGettingPos ? 'animated flash infinite' : ''"
+	                    class="button {{settings.myshape}} {{settings.bsizeClass}} button-shadow2 opacity100 button-energized icon ion-android-pin "
+	                    >
+	            </button>
+	        </div>
+
+	        <div class="my-button-col col col-33">
+	            <button ng-click="openModalTrack()" class="button {{settings.myshape}} {{settings.bsizeClass}} button-shadow2 opacity100 button-royal icon myicon-ruta">
+	            </button>
+	        </div>
+	        
+	        <div class="my-button-col  col col-33">
+	            <button ng-click="openFolder()"
+	                    class="button {{settings.myshape}} {{settings.bsizeClass}} button-shadow2 opacity100 button-balanced icon ion-folder">
+	            </button>
+	            <!--button ng-click="loadGeoJSON()" class="button button-large button-balanced icon ion-folder"></button-->
+	        </div>
+	    </div>
+
+	</ion-content>
+
+</ion-view>

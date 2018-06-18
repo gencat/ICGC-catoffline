@@ -1,0 +1,47 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-royal">
+        <h1 class="title">Inicia sessió a InstaMaps</h1>
+        <div class="buttons">
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalLogingInstamaps.hide()" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+    <ion-content  class="padding">
+        <!--
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Usuari" ng-model="dataLogin.username">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="dataLogin.password">
+            </label>
+        </div>-->
+
+        <div class="list">
+            <ion-md-input placeholder="Usuari" highlight-color="balanced" type="text" ng-model="dataLogin.username"></ion-md-input>
+            <ion-md-input placeholder="Contrasenya" highlight-color="balanced" type="password" ng-model="dataLogin.password"></ion-md-input>
+        </div>
+
+
+        <div ng-show="isDoingLogin()" class="text-center">
+            <!-- <ion-spinner icon="spiral" class="spinner-dark my-spinner"></ion-spinner> -->
+            <ion-spinner ng-attr-icon="{{ ionic.Platform.isIOS() ? 'ios' : 'spiral'}}" class="spinner-dark my-spinner"></ion-spinner>
+        </div>
+
+
+        <button class="button button-block button-balanced" ng-click="doLoginInstamaps(dataLogin)">Inicia la sessió</button>
+
+        <!-- <p class="text-center">
+            o amb:
+        </p>
+
+        <div class="button-bar">
+          <a class="button ion-social-facebook button-positive" ng-click="doLoginInstamapsFacebook()"></a>
+          <a class="button ion-social-twitter button-calm" ng-click="doLoginInstamapsTwitter()"></a>
+          <a class="button ion-social-google button-assertive" ng-click="doLoginInstamapsGoogle()"></a>
+          <a class="button ion-social-linkedin button-positive" ng-click="doLoginInstamapsLinkedin()"></a>
+        </div> -->
+
+    </ion-content>
+
+</ion-modal-view>

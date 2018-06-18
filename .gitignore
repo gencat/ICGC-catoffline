@@ -1,0 +1,21 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+*.apk
+*.keystore
+
+node_modules/
+platforms/
+plugins/
+www/dist/
+res
+typings
+www/A250plus_gm_8a12.mbtiles
+resources/android
+resources/ios
+
+!www/css/plugins
+!www/lib/ionic/css/plugins
+!www/lib/ionic/js/plugins
+!www/lib/leaflet/plugins
+

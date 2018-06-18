@@ -1,0 +1,23 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+        <h1 class="title"><i class="icon ion-search placeholder-icon stable"></i>Resultats de la cerca</h1>
+
+        <div class="buttons">
+            <!-- <button class="button button-clear icon-right ion-arrow-down-c" ng-click="downloadcurrentMap()"></button> -->
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalResCercaLlocs.hide()" ion-stop-event="click"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <ion-list>
+          <ion-item ng-repeat="lloc in resCerca"
+                    ng-click="addLlocPosition(lloc.toponim, lloc.latitud, lloc.longitud)">
+              {{lloc.toponim}}
+          </ion-item>
+        </ion-list>
+
+    </ion-content>
+
+
+</ion-modal-view>

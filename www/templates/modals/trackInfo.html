@@ -1,0 +1,151 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+
+        <h1 class="title"></h1>
+
+        <div class="buttons">
+            <button class="button button-clear icon-right ion-close-circled"
+                    ng-click="modalTrackInfo.hide()" ion-stop-event="click"></button>
+            <button class="button button-clear icon-right ion-checkmark-circled"
+                    ng-click="saveImported(currentImported.idLayer, 'tracks')" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <form name="locationForm" ng-submit="saveLocation()">
+
+            <div class="list list-inset">
+
+                <label class="item item-input">
+                    <i class="icon ion-navigate placeholder-icon"></i>
+                    <input type="text"
+                           ng-model="currentImported.name"
+                           placeholder="Nom"
+                           ng-minlength="1" ng-maxlength="100" >
+                </label>
+
+                <label class="item item-input">
+                    <textarea type="text"
+                              rows="5"
+                              maxlength="250"
+                              placeholder="Descripció"
+                              ng-model="currentImported.description">
+                    </textarea>
+                </label>
+
+                <div class="item row icon-color" >
+
+                    <div ng-class="{'selectedIcon':currentImported.color === '#FFCB92'}"
+                         ng-click="updateColor('#FFCB92')"
+                         class="col beige-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#E46C0A'}"
+                         ng-click="updateColor('#E46C0A')"
+                         class="col orange-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#C00000'}"
+                         ng-click="updateColor('#C00000')"
+                         class="col red-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#D252B9'}"
+                         ng-click="updateColor('#D252B9')"
+                         class="col purple-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#38AADD'}"
+                         ng-click="updateColor('#38AADD')"
+                         class="col blue-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#72B026'}"
+                         ng-click="updateColor('#72B026')"
+                         class="col green-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentImported.color === '#728224'}"
+                         ng-click="updateColor('#728224')"
+                         class="col darkgreen-marker">&nbsp;
+                    </div>
+
+                </div>
+
+                <div class="item tabs tabs-icon-only">
+                    <!--<a class="tab-item">
+                        <i class="icon ion-android-share-alt"></i>
+                    </a>-->
+                    <a class="tab-item" ng-click="cleanTrack()">
+                        <i class="icon ion-trash-a"></i>
+                    </a>
+                </div>
+
+                <div class="item item-divider text-center divider-file-list">
+                  Informació traça
+                </div>
+
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <div class="col col-80 text-center">
+                        <p>
+                            <i class="icon ion-ios-calendar-outline placeholder-icon"></i>Inici: {{currentImported.t_ini}}
+                        </p>
+                    </div>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <div class="col col-80 text-center">
+                        <p>
+                            <i class="icon ion-ios-calendar placeholder-icon"></i>Final: {{currentImported.t_fi}}
+                        </p>
+                    </div>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p><i class="icon ion-ios-timer placeholder-icon"></i> {{currentImported.duration}}</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item item-divider row" ng-show="currentImported.geomType == 'LineString'">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p>Distància : {{currentImported.longitud}} km.</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p><i class="icon ion-flag placeholder-icon"></i> Posicions : {{currentImported.num_positions}}</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item item-divider row">
+                    <div class="col col-50 text-center">
+                        <p>
+                            Alt <i class="icon ion-arrow-up-c placeholder-icon"></i>: {{currentImported.alt_max}}
+                        </p>
+                    </div>
+                    <div class="col col-50 text-center">
+                        <p>
+                            Alt <i class="icon ion-arrow-down-c placeholder-icon"></i>: {{currentImported.alt_min}}
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </form>
+
+    </ion-content>
+
+</ion-modal-view>

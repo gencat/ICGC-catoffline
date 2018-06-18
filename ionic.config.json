@@ -1,0 +1,16 @@
+{
+  "name": "catoffline",
+  "app_id": "0",
+  "gulpStartupTasks": [
+    "clean",
+    "sass",
+    "templatecache",
+    "ng_annotate",
+    "useref",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

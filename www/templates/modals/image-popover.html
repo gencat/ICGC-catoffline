@@ -1,0 +1,28 @@
+<div class="modal image-modal transparent" ng-click="modalImagePopover.hide()">
+
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" active-slide="activeSlide">
+        <ion-slide ng-repeat="imageName in currentMarker.images">
+            <div class="my-slide-buttons">
+              <a class="button button-royal button-icon icon ion-trash-a " ng-click="deleteCameraPicture($index)"></a>
+              <a class="button button-royal button-icon icon ion-share" ng-click="sharePoiPicture(imageName)"></a>
+            </div>
+            <img class="fullscreen-image"  ng-src="{{urlForImage(imageName)}}"/>
+        </ion-slide>
+    </ion-slide-box>
+
+    <!--<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" active-slide="activeSlide">
+
+        <ion-slide ng-repeat="imageName in pictures">
+            <div class="my-slide-buttons">
+              <a class="button button-icon icon ion-trash-a royal" ng-click="deleteCameraPicture($index)"></a>
+              <a class="button button-icon icon ion-share royal"></a>
+            </div>
+            <img class="fullscreen-image"  ng-src="{{imageName.src}}"/>
+        </ion-slide>
+    </ion-slide-box>-->
+
+
+
+
+</div>

@@ -1,0 +1,282 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+
+        <h1 class="title"></h1>
+
+        <div class="buttons">
+            <button class="button button-clear icon-right ion-arrow-right-c" ng-click="modalCreateTrackInfo.hide()" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <form name="locationForm" ng-submit="">
+
+            <div class="list list-inset">
+
+                <label class="item item-input"
+                       ng-class="modeTracking != 0 ? 'item-disabled' : ''">
+                    <i class="icon ion-navigate placeholder-icon"></i>
+                    <input type="text"
+                           ng-model="currentTrack.name"
+                           placeholder="Nom de la traça"
+                           ng-minlength="1"
+                           ng-maxlength="100"
+                           ng-disabled="modeTracking != 0">
+                </label>
+
+                <label class="item item-input"
+                       ng-class="modeTracking != 0 ? 'item-disabled' : ''">
+                    <textarea type="text"
+                              rows="3"
+                              maxlength="250"
+                              placeholder="Descripció"
+                              ng-model="currentTrack.description"
+                              ng-disabled="modeTracking != 0">
+                    </textarea>
+                </label>
+
+
+
+                <!--div class="item item-divider">
+                    Interval entre posicions: {{currentTrack.timeInterval}} sec.
+                </div>-->
+
+                <div class="item item-divider" ng-show="modeTracking == 0">
+                    Interval entre posicions: {{timeIntervalTag}}
+                </div>
+
+                <div class="item range" ng-show="modeTracking == 0">
+                    5s
+                    <i class="icon ion-ios-stopwatch-outline"></i>
+                    <input type="range"
+                           name="seg"
+                           min="5"
+                           max="300"
+                           step="5"
+                           ng-disabled="modeTracking != 0"
+                           ng-model="currentTrack.timeInterval"
+                           ng-change="getTimeIntervalTag()">
+                    <i class="icon ion-ios-stopwatch"></i>
+                    5m
+                </div>
+
+                <div class="item row icon-color" ng-show="modeTracking == 0">
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#FFCB92'}"
+                         ng-click="updateTrackColor('#FFCB92')"
+                         ng-disabled="modeTracking != 0"
+                         class="col beige-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#E46C0A'}"
+                         ng-click="updateTrackColor('#E46C0A')"
+                         ng-disabled="modeTracking != 0"
+                         class="col orange-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#C00000'}"
+                         ng-click="updateTrackColor('#C00000')"
+                         ng-disabled="modeTracking != 0"
+                         class="col red-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#D252B9'}"
+                         ng-click="updateTrackColor('#D252B9')"
+                         ng-disabled="modeTracking != 0"
+                         class="col purple-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#38AADD'}"
+                         ng-click="updateTrackColor('#38AADD')"
+                         ng-disabled="modeTracking != 0"
+                         class="col blue-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#72B026'}"
+                         ng-click="updateTrackColor('#72B026')"
+                         ng-disabled="modeTracking != 0"
+                         class="col green-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentTrack.color === '#728224'}"
+                         ng-click="updateTrackColor('#728224')"
+                         ng-disabled="modeTracking != 0"
+                         class="col darkgreen-marker">&nbsp;
+                    </div>
+                </div>
+
+                <div class="item tabs tabs-icon-only" ng-show="modeTracking == 0" >
+                    <!--<a class="tab-item" ng-disabled="modeTracking != 0">
+                        <i class="icon ion-android-share-alt" ></i>
+                    </a>-->
+                    <a class="tab-item" ng-click="cleanTrack()" ng-disabled="modeTracking != 0">
+                        <i class="icon ion-trash-a"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="list list-inset">
+
+                <div class="item my-item-padding0" ng-show="modeTracking == 0">
+                    <div class="row text-center" >
+                        <div class="col">
+                            <button id="track-button-init"
+                                    class="button my-track-button icon ion-record button assertive"
+                                    ng-click="startTracking()">
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="button my-track-button icon ion-stop  button-dark"></button>
+                        </div>
+                    </div>
+                    <div class="row text-center" >
+                        <div class="col">Gravar</div>
+                        <div class="col linkDisabled">Aturar</div>
+                    </div>
+                </div>
+
+                <div class="item my-item-padding0" ng-show="modeTracking == 1">
+                    <div class="row text-center" >
+                        <div class="col">
+                            <button id="track-button-pause"
+                                    class="button my-track-button icon ion-pause button-royal"
+                                    ng-click="pauseTracking()">
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button id="track-button-fi"
+                                    class="button my-track-button icon ion-stop button-assertive"
+                                    ng-click="stopTracking()">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row text-center" >
+                        <div class="col">Pausar</div>
+                        <div class="col">Aturar</div>
+                    </div>
+                </div>
+
+                <div class="item my-item-padding0" ng-show="modeTracking == 2">
+                    <div class="row text-center" >
+                        <div class="col">
+                            <button id="track-button-init"
+                                    class="button my-track-button icon ion-record button assertive"
+                                    ng-click="restartTracking()">
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button id="track-button-fi"
+                                    class="button my-track-button icon ion-stop button-assertive"
+                                    ng-click="stopTracking()">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row text-center" >
+                        <div class="col">Gravar</div>
+                        <div class="col">Aturar</div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p>Altitud : {{currentAltitud}}</p>
+                    </a>
+                </div>-->
+
+                <!-- <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col text-center">
+                        <p>Inici: {{currentTrack.t_ini}}</p>
+                    </a>
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col text-center">
+                        <p><timer interval="1000">{{hours}} h: {{minutes}} m: {{seconds}} s</timer></p>
+                    </a>
+                </div> -->
+
+                <div class="item item-divider text-center divider-file-list" ng-hide="modeTracking == 0">
+                  Informació traça
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <div class="col col-80 text-center">
+                        <p>
+                            <i class="icon ion-ios-calendar-outline placeholder-icon"></i>Inici: {{currentTrack.t_ini}}
+                        </p>
+                    </div>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <div class="col col-80 text-center">
+                        <p>
+                            <i class="icon ion-ios-timer-outline placeholder-icon"></i>
+                            <timer interval="1000">{{hours}} h: {{minutes}} m: {{seconds}} s</timer>
+                        </p>
+                    </div>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p>Distància : {{currentTrack.longitudTrack}} km.</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p><i class="icon ion-flag placeholder-icon"></i>Posicions : {{currentTrack.numPosicions}}</p>
+                    </a>
+                </div>
+
+                <!-- <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p>Altitud : {{currentAltitud}}</p>
+                    </a>
+                </div>-->
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p><i class="icon ion-pin placeholder-icon"></i> lat: {{currentTrack.current_lat | truncate:6}} - lng: {{currentTrack.current_lng | truncate:6}}</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p><i class="icon ion-arrow-graph-up-right placeholder-icon"></i> Altitud: {{currentTrack.current_alt | truncate:3}} </p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <!-- <div class="item row" ng-hide="modeTracking == 0">
+                    <div class="col col-50 text-center">
+                        <p>
+                            Alt<i class="icon ion-arrow-up-c placeholder-icon"></i>: {{currentTrack.alt_max}}
+                        </p>
+                    </div>
+                    <div class="col col-50 text-center">
+                        <p>
+                            Alt<i class="icon ion-arrow-down-c placeholder-icon"></i>: {{currentTrack.alt_min}}
+                        </p>
+                    </div>
+                </div> -->
+
+
+            </div>
+
+        </form>
+
+    </ion-content>
+
+</ion-modal-view>

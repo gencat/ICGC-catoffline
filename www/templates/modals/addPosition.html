@@ -1,0 +1,156 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+
+        <h1 class="title"></h1>
+
+        <div class="buttons">
+        <!--    <button class="button button-clear icon-right ion-close-circled" ng-click="modalPosition.hide()"></button>-->
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalPosition.hide()" ion-stop-event="click"></button>
+            <button class="button button-clear icon-right ion-checkmark-circled" ng-click="saveLocation()" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <form name="locationForm" ng-submit="saveLocation()">
+
+
+            <div class="list list-inset">
+
+                <!--label class="item item-input">
+                    <span class="input-label">Nom <i class="icon ion-android-pin"></i></span>
+                    <input type="text" ng-model="currentMarker.name" placeholder="Nom del punt" ng-minlength="1" ng-maxlength="100" required>
+                </label-->
+
+                <label class="item item-input">
+                    <i class="icon ion-android-pin placeholder-icon"></i>
+                    <input type="text"
+                           ng-model="currentMarker.name"
+                           placeholder="Nom del punt"
+                           ng-minlength="1" ng-maxlength="100"
+                           ng-change="changePoi()">
+                    </ion-md-input>
+                </label>
+
+                <label class="item item-input">
+                    <textarea type="text"
+                              rows="5"
+                              maxlength="250"
+                              placeholder="Descripció"
+                              ng-model="currentMarker.description">
+                    </textarea>
+                </label>
+
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <p>GEO : {{currentMarker.lat | truncate:6}} - {{currentMarker.lng | truncate:6}}</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+                <div class="item item-divider row">
+                    <div class="col col-10"></div>
+                    <a class="col col-80 text-center">
+                        <!--<p>UTM : {{coordsToETRS89(currentMarker.lat, currentMarker.lng)}}</p>-->
+                        <p>UTM : {{currentMarker.x | truncate:2}} - {{currentMarker.y | truncate:2}}</p>
+                    </a>
+                    <div class="col col-10"></div>
+                </div>
+
+                <div class="item row icon-color" >
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'beigeIcon'}"
+                         ng-click="updateIcon('beigeIcon')"
+                         class="col beige-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'orangeIcon'}"
+                         ng-click="updateIcon('orangeIcon')"
+                         class="col orange-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'redIcon'}"
+                         ng-click="updateIcon('redIcon')"
+                         class="col red-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'purpleIcon'}"
+                         ng-click="updateIcon('purpleIcon')"
+                         class="col purple-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'blueIcon'}"
+                         ng-click="updateIcon('blueIcon')"
+                         class="col blue-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'greenIcon'}"
+                         ng-click="updateIcon('greenIcon')"
+                         class="col green-marker">&nbsp;
+                    </div>
+                    <div ng-class="{'selectedIcon':currentMarker.iconName === 'darkgreenIcon'}"
+                         ng-click="updateIcon('darkgreenIcon')"
+                         class="col darkgreen-marker">&nbsp;
+                    </div>
+                </div>
+
+                <div class="item tabs tabs-icon-only">
+                    <a class="tab-item" ng-click="takePointPicture()">
+                        <i class="icon ion-camera"></i>
+                    </a>
+                    <!--<a class="tab-item">
+                        <i class="icon ion-android-share-alt"></i>
+                    </a>-->
+                    <a class="tab-item" ng-click="cleanMarker()">
+                        <i class="icon ion-trash-a"></i>
+                    </a>
+                </div>
+
+                <!--div class="item row">
+                    <ion-slide-box does-continue="true" on-slide-changed="slideHasChanged($index)">
+                        <ion-slide>
+                            <img class="my-poi-picture"  src="http://www.pop-up-store.es/wp-content/uploads/2015/10/sagradafamilia.2015.pop-up-store.es_.jpg"/>
+                        </ion-slide>
+                        <ion-slide>
+                            <img class="my-poi-picture" src="http://cdn.traveler.es/uploads/images/thumbs/201224/barcelona_a_lo_drive_7931_630x.jpg"/>
+                        </ion-slide>
+                        <ion-slide>
+                            <img class="my-poi-picture" src="http://ciudades30.com/wp-content/uploads/2015/06/barcelona_cnt_18mar11_iStock_b.jpg"/>
+                        </ion-slide>
+                    </ion-slide-box>
+
+                </div-->
+<!--
+                <div ng-hide="!currentMarker.images.length" class="item row">
+                    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                        <ion-slide ng-repeat="imageName in currentMarker.images">
+                            <img class="my-poi-picture"  ng-src="{{urlForImage(imageName)}}"/>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div>-->
+
+                <div class="item item-divider" ng-hide="!currentMarker.images.length">
+                    <i class="ion-images"></i>
+                    Fotografies
+                </div>
+                <a class="item item-list-detail" ng-hide="!currentMarker.images.length">
+                    <ion-scroll direction="x">
+                        <img ng-repeat="imageName in currentMarker.images" ng-src="{{urlForImage(imageName)}}" ng-click="showImages($index)" class="image-list-thumb"/>
+                    </ion-scroll>
+                </a>
+
+                <!--div class="item row">
+                    <ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">
+                        <img ng-repeat="imageName in currentMarker.images" ng-src="{{urlForImage(imageName, currentMarker.id)}}" style="height:200px; padding: 5px 5px 5px 5px;"/>
+                    </ion-scroll>
+                </div>
+
+                <div class="item row">
+                    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true">
+                        <ion-slide ng-repeat="imageName in currentMarker.images">
+                            <img ng-src="{{urlForImage(imageName, currentMarker.id)}}" style="width:80%; padding: 5px 5px 5px 5px;"/>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div-->
+            </div>
+
+        </form>
+
+    </ion-content>
+
+</ion-modal-view>

@@ -1,0 +1,238 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+        <h1 class="title"><i class="icon ion-folder placeholder-icon stable"></i>{{mapa.id}}.{{mapa.nom}}</h1>
+
+        <div class="buttons">
+            <!-- <button class="button button-clear icon-right ion-arrow-down-c" ng-click="downloadcurrentMap()"></button> -->
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalFilesList.hide()" ion-stop-event="click"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <div class="list">
+            <div class="item item-divider text-center divider-file-list">
+              COMPARTIR DADES
+            </div>
+            <div class="item item-stable my-list-item" ng-click="togglePublishInstamaps()" ng-class="{active: showPublishInstamaps}">
+                <i class="icon float-left" ng-class="showPublishInstamaps ? 'ion-minus-round' : 'ion-plus-round'">&nbsp;&nbsp;</i>
+                <span class="my-list-item-title float-left">
+                    <div class="padding-left-5">
+                        <div class="img-circle-icon-little descobreix_color"></div>
+                        <div class="img-circle-icon-little crea_color"></div>
+                        <div class="img-circle-icon-little visualitza_color"></div>
+                        <div class="img-circle-icon-little comparteix_color"></div>
+                    </div>
+                    &nbsp;Publicar a InstaMaps
+                </span>
+            </div>
+            <div ng-show="showPublishInstamaps">
+                <span class="item text-center">
+                    <p>
+                        (Només es publicaran els punts i traces visibles)
+                    </p>
+                    <div class="items">
+                        <p>
+                            <div class="list">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Nom del mapa" ng-model="map.mapNameInstamaps" type="text" ng-minlength="1" ng-maxlength="50">
+                                </label>
+
+                                <div class="item item-toggle">
+
+                                     <!-- <span class="text-left" ng-show="map.uploadPictures">Publicar amb fotos</span>
+                                     <span class="text-left" ng-hide="map.uploadPictures">Publicar sense fotos</span> -->
+
+                                     <span ng-class="map.uploadPictures ? '' : 'colorDisabled'">Publicar amb fotos</span>
+
+                                     <label class="toggle toggle-balanced">
+                                       <input ng-model="map.uploadPictures" ng-true-value="true" ng-false-value="false" type="checkbox">
+                                       <div class="track">
+                                         <div class="handle"></div>
+                                       </div>
+                                     </label>
+                                     <p ng-show="map.uploadPictures">
+                                         <i class="icon ion-alert-circled placeholder-icon"></i>
+                                         Alt consum de dades
+                                     </p>
+
+                                 </div>
+
+                            </div>
+                        </p>
+                    </div>
+
+                </span>
+
+            </div>
+
+            <div class="item text-center" ng-show="showPublishInstamaps">
+                <div class="buttons">
+                   <button ng-show="checkLogin()" class="button button-outline button-stable" ng-click="doLogoutInstamaps()">
+                     <i class="icon ion-log-out"></i>
+                   </button>
+                   <button class="button button-balanced" ng-click="veureInstaMaps()">
+                     <i class="icon ion-forward"></i>
+                   </button>
+               </div>
+            </div>
+
+            <div class="item item-stable my-list-item" ng-click="toggleDownloadData()" ng-class="{active: showDownloadData}">
+                <i class="icon" ng-class="showDownloadData ? 'ion-minus-round' : 'ion-plus-round'"></i>
+                <span class="my-list-item-title">&nbsp;Descarregar dades</span>
+            </div>
+
+            <div class="item text-center" ng-show="showDownloadData">
+                <p>
+                    (Només es decarregaran els punts i traces visibles)
+                </p>
+
+                <div class="items">
+                    <p>
+                        <div class="list">
+                            <label class="item item-input">
+                                <input type="text" placeholder="Nom del fitxer" ng-model="myFileDataMap.filename">
+                            </label>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="item item-divider">Selecciona el format:</div>
+                        <ion-radio ng-repeat="item in fileFormatList" ng-value="item.value" ng-model="myFileDataMap.downloadFormat">{{ item.text }}</ion-radio>
+                    </p>
+                </div>
+
+
+            </div>
+            <div class=" item text-center buttons" ng-show="showDownloadData">
+               <button class="button button-royal" ng-click="downloadMyDataMap()">
+                 <i class="icon ion-arrow-down-c"></i>
+               </button>
+            </div>
+
+            <div class="item item-divider text-center divider-file-list">
+              GESTIONAR DADES
+            </div>
+
+            <div class="item item-stable my-list-item" ng-click="toggleGroupPois()" ng-class="{active: showPoisFilesList}">
+                <i class="icon" ng-class="showPoisFilesList ? 'ion-minus-round' : 'ion-plus-round'"></i>
+                <span class="my-list-item-title">&nbsp;Punts<i class="icon ion-android-pin placeholder-icon"></i></span>
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="(id, poisFile) in poisFilesList"
+                          class="item item-icon-left item-icon-right"
+                          ng-show="showPoisFilesList">
+                    <a class="button button-icon icon"
+                       ng-class="isPoiVisible({{id}}) ? 'ion-eye' : 'ion-eye-disabled'"
+                       ng-click="visiblePoi(id)">
+                    </a>
+                    <a  ng-click="showInfoPoiFilesList({{id}})"
+                        ng-class="isPoiVisible({{id}})?'linkEnabled':'linkDisabled'">
+                        &nbsp;{{poisFile.name}}
+                    </a>
+                    <div class="icon">
+                        <a class="ion-search dark" ng-show="isPoiVisible({{id}})" ng-click="goToPoi(id)"></a>
+                        &nbsp;&nbsp;
+                        <a class="ion-trash-a dark" ng-click="deletePoi(id)"></a>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+
+
+
+            <div class="item item-stable my-list-item" ng-click="toggleGroupTracks()" ng-class="{active: showTracksFilesList}">
+                <i class="icon" ng-class="showTracksFilesList ? 'ion-minus-round' : 'ion-plus-round'"></i>
+                <span class="my-list-item-title">&nbsp;Traces<i class="icon myicon-ruta placeholder-icon"></i></span>
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="(id,trackFile) in tracksFilesList"
+                          class="item item-icon-left item-icon-right"
+                          ng-show="showTracksFilesList">
+                    <a class="button button-icon icon"
+                       ng-class="isTrackVisible({{id}}) ? 'ion-eye' : 'ion-eye-disabled'"
+                       ng-click="visibleTrack(id)">
+                    </a>
+                    <a  ng-click="showInfoTrackFilesList({{id}})"
+                        ng-class="isTrackVisible({{id}})?'linkEnabled':'linkDisabled'">
+                        &nbsp;{{trackFile.name}}
+                    </a>
+                    <div class="icon">
+                        <a class="ion-search dark" ng-show="isTrackVisible({{id}})" ng-click="goToTrack(id)"></a>
+                        &nbsp;&nbsp;
+                        <a class="ion-trash-a dark" ng-click="deleteTrack(id)"></a>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+
+            <div class="item item-stable my-list-item"
+                 ng-click="toggleGroupImported()"
+                 ng-class="{active: showImportedFilesList}">
+                <i class="icon"
+                   ng-class="showImportedFilesList ? 'ion-minus-round' : 'ion-plus-round'"></i>
+                <span class="my-list-item-title">&nbsp;Fitxers externs &nbsp;</span>
+                <i class="icon ion-plus-circled float-right" ng-click="pickImportFile()" ion-stop-event="click"></i>
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="(id,importedFile) in importedFilesList"
+                          class="item item-icon-left item-icon-right"
+                          ng-show="showImportedFilesList">
+                    <a class="button button-icon icon"
+                       ng-class="isImportedVisible({{id}}) ? 'ion-eye' : 'ion-eye-disabled'"
+                       ng-click="visibleImported(id)">
+                    </a>
+
+                    <span ng-class="isImportedVisible({{id}})?'linkEnabled':'linkDisabled'">
+                        &nbsp;{{importedFile.name}}
+                    </span>
+                    <div class="icon">
+                        <a class="ion-search dark" ng-show="isImportedVisible({{id}})" ng-click="goToImported(id)"></a>
+                        &nbsp;&nbsp;
+                        <a class="ion-trash-a dark" ng-click="deleteImported(id)"></a>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <div class="item item-stable my-list-item"
+                 ng-click="toggleGroupExtraData()"
+                 ng-class="{active: showExtraDataList}">
+                <i class="icon"
+                   ng-class="showExtraDataList ? 'ion-minus-round' : 'ion-plus-round'"></i>
+                <span class="my-list-item-title">&nbsp;Informació addicional &nbsp;</span>
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="(id,extraData) in extraDataList"
+                          class="item item-icon-left item-icon-right"
+                          ng-show="showExtraDataList" >
+                    <a class="button button-icon icon"
+                       ng-class="extraData.visible ? 'ion-eye' : 'ion-eye-disabled'"
+                       ng-click="visibleExtraData(id)">
+                    </a>
+                    <span ng-class="extraData.visible ?'linkEnabled':'linkDisabled'" ng-click="visibleExtraData(id)">
+                        &nbsp;{{extraData.name}}
+                    </span>
+                    <div class="icon">
+                        <!-- <a class="ion-search dark" ng-show="isImportedVisible({{id}})" ng-click="goToImported(id)"></a>
+                        &nbsp;&nbsp;
+                        <a class="ion-trash-a dark" ng-click="deleteImported(id)"></a> -->
+                        <img ng-click="visibleExtraData(id)" ng-src="img/{{extraData.path_icon}}" class="img-extra-data-icon">
+                    </div>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+
+
+        <div class="list">
+
+        </div>
+            <!--
+                Links make collapse list
+                http://stackoverflow.com/questions/29749229/how-can-i-collapse-and-expand-multiple-sections-with-angularjs-and-ng-click
+                http://forum.ionicframework.com/t/how-to-make-a-collapsible-list/1542
+                http://codepen.io/shengoo/pen/bNbvdO
+            -->
+    </ion-content>
+
+</ion-modal-view>

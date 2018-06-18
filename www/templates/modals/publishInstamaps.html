@@ -1,0 +1,81 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+        <h1 ng-hide="isDoingPublish()" class="title">Mapa publicat</h1>
+        <div class="buttons">
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalPusblishInstamaps.hide()" ion-stop-event="click"></button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content  class="">
+        <!--<div class="list">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Enllaç:</span>
+              <input type="text" placeholder="Enllaç" ng-model="urlMapInstamaps">
+          </label>
+      </div>-->
+
+    <!--  <div ng-show="isDoingPublish()" class="card">
+          <div class="item item-divider dark">
+                  <div id="" class="img-circle2-icon descobreix_color animated rubberBand infinite"></div>
+                  <div id="" class="img-circle2-icon crea_color animated rubberBand infinite"></div>
+                  <div id="" class="img-circle2-icon visualitza_color animated rubberBand infinite"></div>
+                  <div id="" class="img-circle2-icon comparteix_color animated rubberBand infinite"></div>
+                  <div class="publish-txt">Publicant<span class="one">.</span><span class="two">.</span><span class="three">.</div>
+          </div>
+    </div>-->
+
+
+        <div class="list card">
+
+            <div ng-show="isDoingPublish()"  class="item item-divider dark">
+                    <div id="" class="img-circle2-icon descobreix_color animated rubberBand infinite"></div>
+                    <div id="" class="img-circle2-icon crea_color animated rubberBand infinite"></div>
+                    <div id="" class="img-circle2-icon visualitza_color animated rubberBand infinite"></div>
+                    <div id="" class="img-circle2-icon comparteix_color animated rubberBand infinite"></div>
+                    <div class="publish-txt">Publicant<span class="one">.</span><span class="two">.</span><span class="three">.</div>
+            </div>
+
+            <div ng-hide="isDoingPublish()"  class="item item-divider dark text-center">
+                    <div class="img-circle2-icon descobreix_color"></div>
+                    <div class="img-circle2-icon crea_color"></div>
+                    <div class="img-circle2-icon visualitza_color"></div>
+                    <div class="img-circle2-icon comparteix_color"></div>
+                    <div class="brand-txt">InstaMaps</div>
+            </div>
+
+            <!-- <div ng-hide="isDoingPublish()" class="item item-text-wrap text-center">
+                <p>{{urlMapInstamaps}}</p>
+            </div> -->
+
+<!--             <a ng-hide="isDoingPublish()" class="item item-icon-left item-icon-right" ng-click="openWebInstamaps(urlMapInstamaps)">
+                <i class="icon ion-map"></i>
+                    Obrir mapa a Instamaps
+                <i class="icon ion-arrow-right-c"></i>
+            </a> -->
+
+            <div ng-hide="isDoingPublish()" class="item my-item-iframe">
+              <iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{urlMapInstamapsEmbed | trustAsResourceUrl}}" ></iframe>
+            </div>
+
+            <div ng-hide="isDoingPublish()" class="item">
+                <!-- <span class="text-center item item-icon-left">
+                    <i class="icon ion-android-share-alt"></i>&nsbsp;Compartir mapa:<br><br>
+                </span> -->
+                <div class="button-bar">
+                  <a class="button button-outline button-icon button-dark icon ion-social-twitter" ng-click="socialShare('twitter')"></a>
+                  <a class="button button-outline button-icon button-dark icon ion-social-facebook" ng-click="socialShare('facebook')"></a>
+                  <a class="button button-outline button-dark button-icon icon ion-social-whatsapp" ng-click="socialShare('whatsapp')"></a>
+                  <a class="button button-outline button-icon button-dark icon ion-ios-email" ng-click="socialShare('email')"></a>
+              </div>
+            </div>
+
+            <div ng-hide="isDoingPublish()" class="item item-stable text-center">
+                <a class="button icon-right ion-chevron-right button-balanced" ng-click="openWebInstamaps(urlMapInstamaps)">&nbsp;Obrir a InstaMaps&nbsp;</a>
+            </div>
+
+        </div>
+
+    </ion-content>
+
+</ion-modal-view>

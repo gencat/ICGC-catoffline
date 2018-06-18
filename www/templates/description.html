@@ -1,0 +1,125 @@
+<ion-view view-title="Descripció">
+   <ion-content class="my-body">
+
+      <!--<ion-spinner icon="bubbles" class="spinner-royal my-spinner2"></ion-spinner>-->
+
+      <div ng-show="showSpinner" class="my-spinner-center">
+          <ion-spinner icon="spiral" class="spinner-dark "></ion-spinner>
+      </div>
+
+        <div class="list card">
+            <div class="item item-avatar my-header-card">
+              <div class="item-image mapa-list-id" ng-class="isAnyDownloaded() ? 'background-downloaded' : 'background-no-downloaded'" >{{mapa.id}}</div>
+              <h2 class="mapa-list-name">{{mapa.nom}}</h2>
+           </div>
+
+           <span ng-if="!isAdded(mapa.id)">
+             <!--BOTONS TOPO-->
+              <div ng-show="isDownloaded()" class="item">
+                  <div class=" button-bar row">
+                     <a ng-click="deleteMap('')"
+                        class="col-25 button button-35px button-outline icon ion-android-delete"></a>
+                     <a ng-click="toggleShowMapInfo()"
+                        class="col-25 button button-35px button-outline icon ion-ios-information-outline"></a>
+                     <a class="col-50 button button-35px button-royal icon-left ion-map" ng-click="toggleSpinner()"
+                        ui-sref="map({idMap: {{mapa.id}}, type: 'topo' })">Mapa&nbsp;<i class="icon  ion-ios-arrow-right"></i></a>
+                 </div>
+                 <div ng-show="showMapInfo" class="my-card" ng-cloak>
+                      <div class="item my-info-item item-text-wrap text-center">
+                        <h4>Edició {{mapa.edicio}}, versió {{mapa.versio}} ({{mapa.data}})<br>Any de vol: {{mapa.any_vol}}.</h4>
+                      </div>
+                 </div>
+                  <!--div class="txt-downloaded"><p>{{mapa.mb}} MB - Descarregat: 15/09/2015</p></div-->
+              </div>
+              <div ng-hide="isDownloaded()" class="item button-bar">
+                  <a ng-click="initDownloadProcess('')"
+                     class="button button-35px button-outline button-royal icon-left ion-android-download">
+                      Mapa ({{mapa.mb}} MB)
+                  </a>
+              </div>
+
+              <!--BOTONS ORTO-->
+              <div ng-show="isDownloadedOrto()" class="item">
+                  <div class=" button-bar row">
+                     <a ng-click="deleteMap('_orto')"
+                        class="col-25 button button-35px button-outline icon ion-android-delete"></a>
+                     <a class="col-75 button button-35px button-royal icon-left ion-image" ng-click="toggleSpinner()"
+                        ui-sref="map({idMap: {{mapa.id}}, type: 'orto' })">Imatge&nbsp;<i class="icon  ion-ios-arrow-right"></i></a>
+                 </div>
+                  <!--div class="txt-downloaded"><p>{{mapa.mb}} MB - Descarregat: 15/09/2015</p></div-->
+              </div>
+              <div ng-hide="isDownloadedOrto()" class="item button-bar">
+                  <a ng-click="initDownloadProcess('_orto')"
+                     class="button button-35px button-outline button-royal icon-left ion-android-download">
+                      Imatge ({{mapa.mb_orto}} MB)
+                  </a>
+              </div>
+
+
+              <div class="item button-bar">
+                  <a ng-click="openWebBotiga()"
+                     class="button button-35px button-outline icon-left ion-android-map button-balanced">
+                      Obtenir en paper
+                  </a>
+              </div>
+
+
+              <div class="item item-body">
+                  <img class="full-image img-description"  ng-src="img/thumbnails/{{mapa.id}}-opt.jpg">
+                  <!-- <p>Aquest mapa comprèn, total o parcialment, els <b>municipis</b> de: </p>
+                  <span class="txt-justify">{{mapa.municipis}}</span> -->
+              </div>
+
+             <div ng-show="isAnyDownloaded()" class="item">
+              <div ng-show="isDownloaded()" class="txt-downloaded"><p>Mapa {{mapa.mb}} MB - Descarregat: {{mapa.data_download}}</p></div>
+              <div ng-show="isDownloadedOrto()" class="txt-downloaded"><p>Imatge {{mapa.mb_orto}} MB - Descarregat: {{mapa.data_download_orto}}</p></div>
+             </div>
+           </span>
+
+           <span ng-if="isAdded(mapa.id)">
+
+             <div class="item">
+                  <div class=" button-bar row">
+                     <a ng-click="deleteMap('')"
+                        class="col-25 button button-35px button-outline icon ion-android-delete"></a>
+                     <a class="col-75 button button-35px button-royal icon-left ion-image" ng-click="toggleSpinner()"
+                        ui-sref="map({idMap: {{mapa.id}}, type: 'added' })">Imatge&nbsp;<i class="icon  ion-ios-arrow-right"></i></a>
+                 </div>
+                  <!--div class="txt-downloaded"><p>{{mapa.mb}} MB - Descarregat: 15/09/2015</p></div-->
+             </div>
+
+             <div class="item item-body">
+                 <img class="full-image img-description"  ng-src="img/thumbnails/map-icon-pure.png">
+             </div>
+
+            <div ng-show="isAnyDownloaded()" class="item">
+             <div class="txt-downloaded"><p>Afegit: {{mapa.data_download}}</p></div>
+            </div>
+
+           </span>
+
+
+
+<!--
+            <div class="my-header-card">
+                <div ng-show="isDownloaded()" class="item button-bar">
+                    <a ng-click="deleteMap()"
+                       class="button button-outline icon-left ion-android-delete">Esborrar</a>
+                    <a class="button button-royal icon-left ion-map"
+                       ui-sref="map({idMap: {{mapa.id}} })">Anar a mapa</a>
+                </div>
+
+                <div ng-hide="isDownloaded()" class="item button-bar">
+                    <a ng-click="initDownloadProcess()"
+                       class="button button-outline button-royal icon-left ion-android-download">
+                        Descarregar mapa ({{mapa.mb}} MB)
+                    </a>
+                </div>
+            </div>
+-->
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

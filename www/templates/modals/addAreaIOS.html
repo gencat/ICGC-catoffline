@@ -1,0 +1,39 @@
+<ion-modal-view class="modal image-modal">
+    <ion-header-bar class="bar-royal">
+        <h1 class="title"><i class="icon ion-search placeholder-icon stable"></i>MBTiles disponibles</h1>
+
+        <div class="buttons">
+            <!-- <button class="button button-clear icon-right ion-arrow-down-c" ng-click="downloadcurrentMap()"></button> -->
+            <button class="button button-clear icon-right ion-close-circled" ng-click="modalAddAreaIOS.hide()" ion-stop-event="click"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+
+
+<!--         <ion-list>
+            <div ng-repeat="item in listFiles">
+                <ion-radio ng-if="isValidMBTiles(item.isDirectory, item.name)" ng-model="selectedFile.path" ng-value="item.name">{{item.name}}
+                </ion-radio>
+            </div>
+        </ion-list> -->
+
+        <ion-list>
+          <ion-item ng-repeat="item in listFiles"
+                    ng-if="isValidMBTiles(item.isDirectory, item.name)"
+                    ng-click="addArea(item.name)">
+              {{item.name}}
+          </ion-item>
+        </ion-list>
+
+        <div ng-show="isDoingAddArea()" class="text-center">
+            <!-- <ion-spinner icon="spiral" class="spinner-dark my-spinner"></ion-spinner> -->
+            <ion-spinner ng-attr-icon="{{ ionic.Platform.isIOS() ? 'ios' : 'spiral'}}" class="spinner-dark my-spinner"></ion-spinner>
+        </div>
+
+
+
+    </ion-content>
+
+
+</ion-modal-view>
