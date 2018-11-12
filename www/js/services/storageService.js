@@ -19,8 +19,11 @@ function(
     self.storageMBTiles = "";
     self.storageFiles = "";
 
-    self.updateStorageMBTiles = function(newPath){
+    self.updateCurrentStoragePaths = function(newPath){
       self.storageMBTiles = newPath;
+      self.storagePathBase = newPath;
+      $localstorage.setObject("storageMBTiles", newPath);
+      $localstorage.setObject("storagePathBase", newPath);
     };
 
     /**** Inicialitza path d'emmagatzematge de l'app per Android ****/

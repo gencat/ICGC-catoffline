@@ -250,8 +250,9 @@ function(
                               storageService.checkValidpath("file://"+res+"/").then(
                                 function(success){
                                   if(success){
-                                    storageService.updateStorageMBTiles("file://"+res+"/");
-                                    $localstorage.setObject("storageMBTiles", "file://"+res+"/");
+
+                                    storageService.updateCurrentStoragePaths("file://"+res+"/");                                    
+
                                     $scope.showToast("Carpeta de descàrrega actualitzada: file://"+res+"/", "long", "center");
                                     DBTallsTopoFactory.updateAvailableMaps().then(
                                       function(res){

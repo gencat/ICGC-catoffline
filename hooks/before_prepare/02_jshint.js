@@ -6,7 +6,11 @@ var jshint = require('jshint').JSHINT;
 var async = require('async');
 
 var foldersToProcess = [
-    'js', 'js/controllers', 'js/directives', 'js/factories', 'js/services'
+    'js',
+    'js/controllers',
+    'js/directives',
+    'js/factories',
+    'js/services'
 ];
 
 foldersToProcess.forEach(function(folder) {

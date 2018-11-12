@@ -126,7 +126,7 @@ CommonFunctionFactory
 
           });
 
-    }else if($scope.is3GConnection()) {/
+    }else if($scope.is3GConnection()) {
 
           var confirmPopupDownload3G = $ionicPopup.confirm({
               title: '<div class="my-popup-title"><b><i class="icon ion-alert"></i>&nbsp;Avís</b></div>',

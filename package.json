@@ -50,7 +50,8 @@
         "plist": "1.2.0",
         "tostr": "0.1.0",
         "xcode": "0.8.3",
-        "cordova-sqlite-ext": "git+https://github.com/jessisena/cordova-sqlite-ext.git#cordova-sqlite-ext-master"
+        "cordova-sqlite-ext": "git+https://github.com/jessisena/cordova-sqlite-ext.git#cordova-sqlite-ext-master",
+        "cordova-ios": "^4.4.0"
     },
     "cordovaPlugins": [
         "cordova-plugin-camera",
@@ -59,8 +60,8 @@
         "cordova-plugin-file",
         "cordova-plugin-file-transfer",
         {
-             "locator": "https://github.com/jessisena/MFileChooser.git",
-             "id": "com.maginsoft.mfilechooser"
+            "locator": "https://github.com/jessisena/MFileChooser.git",
+            "id": "com.maginsoft.mfilechooser"
         },
         "cordova-plugin-geolocation",
         "cordova-plugin-inappbrowser",
@@ -78,8 +79,6 @@
         },
         "cordova-custom-config@3.0.0",
         "cordova.plugins.diagnostic@3.3.2",
-        
-   
         "cordova-plugin-device-orientation",
         {
             "id": "cordova-fabric-plugin",

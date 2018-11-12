@@ -1,4 +1,5 @@
 {
+  "type": "ionic1",
   "name": "catoffline",
   "app_id": "0",
   "gulpStartupTasks": [
@@ -12,5 +13,9 @@
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
-  ]
+  ],
+  "integrations": {
+    "cordova": {},
+    "gulp": {}
+  }
 }

@@ -140,7 +140,7 @@ CATOFFLINE_INFO) {
 
                         try{
 
-                            self.currentDownloading = $cordovaFileTransfer.download(CATOFFLINE_INFO.urlDownload_zipVt, targetPath, {}, true);
+                            self.currentDownloading = $cordovaFileTransfer.download(CATOFFLINE_INFO.urlDownload_zipVt_AWS, targetPath, {}, true);
                             self.currentDownloading.then(
 
                                 function(result) {

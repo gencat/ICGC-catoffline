@@ -97,6 +97,11 @@ ionic resources
 
 ## Release History
 
+### VERSIÓ 2.2.0
+- Correcció BUG actualització ruta storagePathBase en Modificar la ruta d'emmgatzamatge
+- Correció BUG mostrar coordenades incorrectes del waypoints al mapa
+- Corregit problema de publicació a InstaMaps
+
 ### VERSIÓ 2.1.0
 - Afegim capa raster de normals al mapa
 - Eliminiem zoom flyTo en fer punt al mapa manualment

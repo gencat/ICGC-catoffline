@@ -414,12 +414,12 @@ function(
   	  if($scope.mapa.id === 0){
 
 
-  	  	mapStyle = VT_STYLES.estil_mamata_ombra;
+  	  	//mapStyle = VT_STYLES.estil_mamata_ombra;
 
   	  	if(ionic.Platform.isAndroid()){
 
 	      var path = storageService.storagePathBase + $scope.mapa.id +".mbtiles";	 
-	      mapStyle.sources.mtc25mgdb.tiles[0] = JSON.stringify({
+	      mapStyle.sources.mtc25mcatoff.tiles[0] = JSON.stringify({
 	      	name: path.substring(7),
 	      	location: 2,
 	      	createFromLocation: 2,
@@ -427,7 +427,7 @@ function(
 	      });
       
 	      var path_normals = storageService.storagePathBase + "normal6-12_v12.mbtiles";
-	      mapStyle.sources.normals.tiles[0] = JSON.stringify({
+	      mapStyle.sources.normals0.tiles[0] = JSON.stringify({
 	      	name: path_normals.substring(7),
 	      	location: 2,
 	      	createFromLocation: 2,
@@ -1188,8 +1188,8 @@ function(
 
                               openModalPosition(
                                   e.features[0].properties.id,
-                                  obj.geometry.coordinates[0],
                                   obj.geometry.coordinates[1],
+                                  obj.geometry.coordinates[0],
                                   e.features[0].properties.name,
                                   e.features[0].properties.description,
                                   e.features[0].properties.iconName,
