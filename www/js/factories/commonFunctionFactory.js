@@ -31,11 +31,11 @@ function($timeout, $log) {
 			pos.longitude, 
 			pos.latitude,
 			alt, 
-			parseFloat($scope.currentTrack.longitudTrack), 	//distància del punt en km
-			pos.speed,	//velocitat GPS
-			tempsPas,	//temps de pas pel punt en ms
-			((parseFloat($scope.currentTrack.longitudTrack) * 1000.0 * 1000.0)/ tempsPas),	//velocitat calculada en m/s
-			desAcum	//Desnivell acumulat
+			parseFloat($scope.currentTrack.longitudTrack) || 0, 	//distància del punt en km
+			pos.speed || 0,	//velocitat GPS
+			tempsPas || 0,	//temps de pas pel punt en ms
+			((parseFloat($scope.currentTrack.longitudTrack) * 1000.0 * 1000.0)/ tempsPas) || 0,	//velocitat calculada en m/s
+			desAcum || 0	//Desnivell acumulat
 		];
 
 		$scope.currentTrack.latlngs.push(JSON.stringify(pointData));

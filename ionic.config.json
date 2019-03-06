@@ -1,7 +1,10 @@
 {
-  "type": "ionic1",
   "name": "catoffline",
-  "app_id": "0",
+  "integrations": {
+    "cordova": {},
+    "gulp": {}
+  },
+  "type": "ionic1",
   "gulpStartupTasks": [
     "clean",
     "sass",
@@ -14,8 +17,5 @@
     "www/**/*",
     "!www/lib/**/*"
   ],
-  "integrations": {
-    "cordova": {},
-    "gulp": {}
-  }
+  "id": "0"
 }

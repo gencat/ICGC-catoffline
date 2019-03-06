@@ -23,7 +23,7 @@ ionic state restore --plugins
 1.1 **La instal·lació del plugin de fabric, s'ha de fer a mà, afegint el propi API_KEY**
 
 ```
-ionic plugin add cordova-fabric-plugin --variable FABRIC_API_KEY={YOUR_API_KEY} --variable FABRIC_API_SECRET={YOUR_SECRET}
+ionic cordova plugin add cordova-fabric-plugin --variable FABRIC_API_KEY={YOUR_API_KEY} --variable FABRIC_API_SECRET={YOUR_SECRET}
 ```
 
 2. **Instal·lació de les dependencies:**
@@ -44,10 +44,10 @@ npm update --save-dev
 3. **Afegir la plataforma Android/IOS**
 
 ```
-ionic platform add android
+ionic cordova platform add android
 ```
 ```
-ionic platform add ios
+ionic cordova platform add ios
 ```
 
 3.1 **Per IOS, activar el HOOK, 020_add_tags_to_plist.sh, per permetre exportar fitxers, consultar:"**
@@ -61,6 +61,82 @@ ionic platform add ios
 ```
 ionic resources
 ```
+
+### A partir versió 2.0.5
+
+La versió 1 d'ionic és considera "deprecated". A partir d'ara tenir en compte totes les següents indicacions de versionat per fer funcionar el projecte.
+
+A continuació la info de l'entorn amb el qual a data 6/3/2019, s'ha aconseguit compilar i executar el projecte en mode dev i prod:
+
+```
+[ionic resources](Ionic:
+
+   ionic (Ionic CLI) : 4.10.3 (C:\Users\j.sena\AppData\Roaming\npm\node_modules\ionic)
+   Ionic Framework   : ionic1 1.2.4
+   @ionic/v1-toolkit : 1.0.20
+
+Cordova:
+
+   cordova (Cordova CLI) : 8.1.2 (cordova-lib@8.1.1)
+   Cordova Platforms     : android 6.0.0
+   Cordova Plugins       : no whitelisted plugins (21 plugins total)
+
+System:
+
+   Android SDK Tools : 26.1.1 (C:\Users\j.sena\AppData\Local\Android\Sdk)
+   NodeJS            : v10.15.1 (C:\Program Files\nodejs\node.exe)
+   npm               : 6.4.1
+   OS                : Windows 10
+)
+```
+**IMPORATNT:** En incrementar la versió de cordova-android (+6.0.0), donava conflictes amb el plugin de fabric. 
+
+i aquí el llistat de **plugins** amb les versions actuals:
+
+```
+com.jcesarmobile.filepicker 1.1.1 "File Picker"
+com.maginsoft.mfilechooser 1.0.0 "Maginsoft FileChooser"
+cordova-custom-config 3.0.0 "cordova-custom-config"
+cordova-fabric-plugin 1.1.9 "cordova-fabric-plugin"
+cordova-plugin-camera 2.3.0 "Camera"
+cordova-plugin-compat 1.1.0 "Compat"
+cordova-plugin-console 1.0.7 "Console"
+cordova-plugin-device 1.1.3 "Device"
+cordova-plugin-device-orientation 1.0.7 "Device Orientation"
+cordova-plugin-file 4.3.0 "File"
+cordova-plugin-file-transfer 1.6.0 "File Transfer"
+cordova-plugin-geolocation 2.4.1-dev "Geolocation"
+cordova-plugin-google-analytics 1.0.0 "Google Universal Analytics Plugin"
+cordova-plugin-inappbrowser 1.5.0 "InAppBrowser"
+cordova-plugin-mauron85-background-geolocation 2.2.5 "CDVBackgroundGeolocation"
+cordova-plugin-network-information 1.3.0 "Network Information"
+cordova-plugin-splashscreen 4.0.0 "Splashscreen"
+cordova-plugin-statusbar 2.2.0 "StatusBar"
+cordova-plugin-whitelist 1.3.2 "Whitelist"
+cordova-plugin-x-socialsharing 5.1.3 "SocialSharing"
+cordova-plugin-x-toast 2.5.2 "Toast"
+cordova-plugin-zip 3.1.0 "cordova-plugin-zip"
+cordova-sqlite-storage 0.7.11-dev "Cordova sqlite storage plugin"
+cordova.plugins.diagnostic 3.3.2 "Diagnostic"
+ionic-plugin-keyboard 2.2.1 "Keyboard"
+org.pbernasconi.progressindicator 1.1.0 "Progress Indicator"
+```
+
+llistat de les versions de les llibreries de gulp (les que han donat problemes):
+
+```
+        "gulp-angular-templatecache": "2.0.0",
+        "gulp-autoprefixer": "3.1.1",
+        "gulp-clean": "0.3.2",
+        "gulp-concat": "2.6.1",
+        "gulp-minify-css": "0.3.0",
+        "gulp-ng-annotate": "2.0.0",
+        "gulp-uglify": "2.1.2",
+        "gulp-useref": "3.1.2",
+```
+
+**IMPORTANT:** Ha estat impossible instal·lar correctament la lib de gulp-sass. És un problema pendent a resoldre si es vol tornar a publicar un nou APK.
+
 
 
 

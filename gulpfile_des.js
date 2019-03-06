@@ -1,10 +1,9 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
-var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
+
 var sh = require('shelljs');
 var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -18,7 +17,7 @@ var paths = {
   useref: ['./www/**/*.html']
 };
 
-gulp.task('default', ['sass', 'templatecache', 'ng_annotate', 'useref']);
+gulp.task('default', ['templatecache', 'ng_annotate', 'useref']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
