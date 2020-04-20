@@ -1,3 +1,7 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+![Maintenance](https://img.shields.io/maintenance/no/2018)
+
 # [DEPRECATED] Catalunya Offline
 > Veure i moure's sobre el mapa de Catalunya (ICGC) també sense cobertura mòbil.
 
