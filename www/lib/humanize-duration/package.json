@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "coffee-script": "^1.9.2",
-    "csv-parse": "^0.1.1",
+    "csv-parse": "^4.8.8",
     "jshint": "^2.7.0",
     "mocha": "^2.2.4",
     "ms": "^0.7.1"
