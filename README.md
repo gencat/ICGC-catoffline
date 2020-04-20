@@ -1,4 +1,4 @@
-# Catalunya Offline
+# [DEPRECATED] Catalunya Offline
 > Veure i moure's sobre el mapa de Catalunya (ICGC) també sense cobertura mòbil.
 
 ![](./resources/Catalunya_offline_1024x500.png)
