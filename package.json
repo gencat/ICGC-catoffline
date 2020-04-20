@@ -119,7 +119,7 @@
         "@ionic/v1-toolkit": "1.0.20",
         "async": "^2.5.0",
         "bower": "^1.8.0",
-        "clean-css": "^3.4.27",
+        "clean-css": "^4.1.11",
         "cordova-uglify": "^0.2.8",
         "elementtree": "^0.1.6",
         "gulp-angular-templatecache": "2.0.0",
