@@ -32,7 +32,9 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-x-socialsharing": {},
+            "cordova-plugin-x-socialsharing": {
+                "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+            },
             "cordova-plugin-x-toast": {},
             "cordova-plugin-zip": {},
             "cordova.plugins.diagnostic": {},
@@ -40,6 +42,10 @@
             "cordova-fabric-plugin": {
                 "FABRIC_API_KEY": "dae4b00e0e8a1fdd59520735a3842fe2841a0596",
                 "FABRIC_API_SECRET": "19e6b239a7478a278bdbccc7989ac1a2d25a1852c15fa17bd423c7ce02019fef"
+            },
+            "cordova-plugin-filepicker": {},
+            "cordova-plugin-background-geolocation": {
+                "ALWAYS_USAGE_DESCRIPTION": "This app requires background location tracking"
             }
         }
     },
@@ -56,9 +62,9 @@
         "manifest"
     ],
     "dependencies": {
+        "angular-ui-router": "^1.0.29",
         "colors": "1.1.2",
         "com.jcesarmobile.filepicker": "https://github.com/jcesarmobile/FilePicker-Phonegap-iOS-Plugin.git",
-        "cordova-android": "6.0.0",
         "cordova-fabric-plugin": "1.1.9",
         "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-console": "^1.0.7",
@@ -80,6 +86,7 @@
         "cordova.plugins.diagnostic": "^3.3.2",
         "elementtree": "0.1.6",
         "fs-extra": "0.26.5",
+        "gulp-sass": "^4.1.0",
         "ionic-plugin-keyboard": "^2.2.1",
         "lodash": "^4.3.0",
         "plist": "1.2.0",
@@ -117,11 +124,15 @@
     "cordovaPlatforms": [],
     "devDependencies": {
         "@ionic/v1-toolkit": "1.0.20",
+        "@mauron85/cordova-plugin-background-geolocation": "git+https://github.com/mauron85/cordova-plugin-background-geolocation.git",
         "async": "^2.5.0",
         "bower": "^1.8.0",
         "clean-css": "^4.1.11",
+        "cordova-android": "9.1.0",
+        "cordova-plugin-filepicker": "git+https://github.com/jcesarmobile/FilePicker-Phonegap-iOS-Plugin.git",
         "cordova-uglify": "^0.2.8",
         "elementtree": "^0.1.6",
+        "es6-promise-plugin": "^4.2.2",
         "gulp-angular-templatecache": "2.0.0",
         "gulp-autoprefixer": "3.1.1",
         "gulp-clean": "0.3.2",
@@ -137,6 +148,10 @@
         "uglify-js": "^2.8.29"
     },
     "scripts": {
-        "start": "npm install && bower install"
+        "start": "npm install && bower install",
+        "preinstall": "npx npm-force-resolutions"
+    },
+    "resolutions": {
+        "graceful-fs": "^4.2.4"
     }
 }

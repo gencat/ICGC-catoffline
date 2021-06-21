@@ -9,7 +9,10 @@ angular.module('catoffline', [
   'ionicScroller',
   'ionMdInput',
   'ion-floating-menu',
-  'templates'
+  'templates',
+  '$stateProvider',
+  '$urlRouterProvider',
+  '$cordovaInAppBrowserProvider'
 ])
 
 .run(function($ionicPlatform, DBTallsTopoFactory, storageService, GA, $cordovaSplashscreen, $rootScope, $state, $ionicPopup) {
