@@ -82,7 +82,7 @@
         "fs-extra": "0.26.5",
         "ionic-plugin-keyboard": "^2.2.1",
         "lodash": "^4.3.0",
-        "plist": "1.2.0",
+        "plist": "3.0.4",
         "tostr": "0.1.0",
         "xcode": "0.8.3"
     },
