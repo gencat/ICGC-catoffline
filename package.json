@@ -117,7 +117,7 @@
     "cordovaPlatforms": [],
     "devDependencies": {
         "@ionic/v1-toolkit": "1.0.20",
-        "async": "^2.5.0",
+        "async": "^3.2.2",
         "bower": "^1.8.0",
         "clean-css": "^4.1.11",
         "cordova-uglify": "^0.2.8",
