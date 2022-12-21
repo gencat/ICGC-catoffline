@@ -123,7 +123,7 @@
         "cordova-uglify": "^0.2.8",
         "elementtree": "^0.1.6",
         "gulp-angular-templatecache": "2.0.0",
-        "gulp-autoprefixer": "3.1.1",
+        "gulp-autoprefixer": "8.0.0",
         "gulp-clean": "0.3.2",
         "gulp-concat": "2.6.1",
         "gulp-minify-css": "0.3.0",
