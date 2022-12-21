@@ -68,7 +68,7 @@
         "cordova-plugin-file-transfer": "^1.6.3",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-google-analytics": "^1.0.0",
-        "cordova-plugin-inappbrowser": "^1.7.1",
+        "cordova-plugin-inappbrowser": "^3.1.0",
         "cordova-plugin-mauron85-background-geolocation": "git+https://github.com/mauron85/cordova-plugin-background-geolocation.git",
         "cordova-plugin-network-information": "^1.3.3",
         "cordova-plugin-splashscreen": "^4.0.3",
